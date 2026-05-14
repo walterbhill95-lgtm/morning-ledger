@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Morning Ledger</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+      <div class="header-top">
+
+        <div class="logo-row">
+
+          <div class="logo-icon">
+            ML
+          </div>
+
+          <div>
+            <h1>Morning Ledger</h1>
+            <p>Your Daily Financial Brief</p>
+          </div>
+
+        </div>
+
+        <div class="header-date">
+          <span>Good Morning, Walt & Laura Ellis</span>
+          <p id="current-date"></p>
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <!-- PORTFOLIO HERO -->
+
+    <section class="card portfolio-hero">
+
+      <div class="hero-top">
+
+        <div>
+
+          <p class="hero-label">
+            TOTAL PORTFOLIO VALUE
+          </p>
+
+          <h1 class="hero-value">
+            $0
+          </h1>
+
+          <div class="hero-change">
+
+            <span id="daily-dollar-gain"></span>
+
+            <span id="daily-percent-gain"></span>
+
+          </div>
+
+        </div>
+
+        <div class="hero-badge">
+          Ahead Of Goal
+        </div>
+
+      </div>
+
+
+      <div class="hero-grid">
+
+        <div class="hero-stat">
+          <span>YTD Return</span>
+          <h3 id="ytd-return"></h3>
+        </div>
+
+        <div class="hero-stat">
+          <span>YTD Growth</span>
+          <h3 id="ytd-growth"></h3>
+        </div>
+
+        <div class="hero-stat">
+          <span>Contributions</span>
+          <h3 id="contributions"></h3>
+        </div>
+
+        <div class="hero-stat">
+          <span>Cash Position</span>
+          <h3 id="cash-position"></h3>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PREMARKET DASHBOARD -->
+
+    <section class="card">
+
+      <div class="section-title">
+        <span>Market Overview</span>
+        <h2>Premarket Dashboard</h2>
+      </div>
+
+      <div class="stats-grid">
+
+        <div class="stat-box">
+          <span>S&P Futures</span>
+          <h3 id="sp500-price"></h3>
+        </div>
+
+        <div class="stat-box">
+          <span>Nasdaq Futures</span>
+          <h3 id="nasdaq-price"></h3>
+        </div>
+
+        <div class="stat-box">
+          <span>WTI Oil</span>
+          <h3 id="oil-price"></h3>
+        </div>
+
+        <div class="stat-box">
+          <span>VIX</span>
+          <h3 class="red">16.42</h3>
+        </div>
+
+        <div class="stat-box">
+          <span>Bitcoin</span>
+          <h3 id="btc-price">Loading...</h3>
+        </div>
+
+        <div class="stat-box">
+          <span>10Y Yield</span>
+          <h3>4.21%</h3>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SPLIT LAYOUT -->
+
+    <div class="split-layout">
+
+
+      <!-- UPCOMING BILLS -->
+
+      <section class="card">
+
+        <div class="section-title">
+          <span>Cash Flow</span>
+          <h2>Upcoming Bills</h2>
+        </div>
+
+        <div id="bills-container">
+
+          <div class="bill-row">
+            <p>Loading bills...</p>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- GOAL TRACKING -->
+
+      <section class="card">
+
+        <div class="section-title">
+          <span>Long-Term Progress</span>
+          <h2>Goal Tracking</h2>
+        </div>
+
+        <div class="goal-card">
+
+          <div class="goal-top">
+
+            <div>
+              <h3>$250K Portfolio Goal</h3>
+              <p>Current Progress</p>
+            </div>
+
+            <span>80%</span>
+
+          </div>
+
+          <div class="progress-bar">
+            <div
+              class="progress-fill"
+              style="width: 80%;"
+            ></div>
+          </div>
+
+        </div>
+
+
+        <div class="goal-card">
+
+          <div class="goal-top">
+
+            <div>
+              <h3>$500K Net Worth Goal</h3>
+              <p>Projected Target: June 2031</p>
+            </div>
+
+            <span>40%</span>
+
+          </div>
+
+          <div class="progress-bar">
+            <div
+              class="progress-fill"
+              style="width: 40%;"
+            ></div>
+          </div>
+
+        </div>
+
+
+        <div class="goal-card">
+
+          <div class="goal-top">
+
+            <div>
+              <h3>2026 Investment Contributions</h3>
+              <p>Annual Goal Progress</p>
+            </div>
+
+            <span>55%</span>
+
+          </div>
+
+          <div class="progress-bar">
+            <div
+              class="progress-fill"
+              style="width: 55%;"
+            ></div>
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+
+
+    <!-- TOP HEADLINES -->
+
+    <section class="card">
+
+      <div class="section-title">
+        <span>News Briefing</span>
+        <h2>Top Headlines</h2>
+      </div>
+
+      <div id="headlines-container">
+
+        <div class="headline">
+          <p>Loading headlines...</p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- DAILY SUMMARY -->
+
+    <section class="card summary-card">
+
+      <div class="section-title">
+        <span>AI Commentary</span>
+        <h2>Daily Summary</h2>
+      </div>
+
+      <p class="summary-text">
+
+        Markets are pointing toward a moderately positive open this morning as technology stocks continue leading momentum higher.
+
+        <br><br>
+
+        Treasury yields eased slightly overnight while oil prices climbed on renewed supply concerns.
+
+        <br><br>
+
+        Your portfolio remains ahead of annual contribution targets, and projected cash flow after upcoming bills remains healthy heading into next week.
+
+      </p>
+
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
