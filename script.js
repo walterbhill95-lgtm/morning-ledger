@@ -12,140 +12,11 @@ document.getElementById('current-date').textContent =
 
 
 // =========================
-// API KEY
-// =========================
-
-const apiKey = "d82dbhhr01qmgc0fme10d82dbhhr01qmgc0fme1g";
-
-
-// =========================
 // GOOGLE SHEETS API
 // =========================
 
 const sheetApiUrl =
   "https://script.google.com/macros/s/AKfycbwsYYBPENLGUXWWpFupIh6eXaO-vZQDT_Cp5QlPUDqWpVEwWjdQaxArKW4B0ydtkg2K/exec";
-
-
-// =========================
-// BITCOIN
-// =========================
-
-fetch(`https://finnhub.io/api/v1/quote?symbol=BINANCE:BTCUSDT&token=${apiKey}`)
-  .then(response => response.json())
-  .then(data => {
-
-    document.getElementById("btc-price")
-      .textContent =
-      `$${Math.round(data.c).toLocaleString()}`;
-
-  });
-
-
-// =========================
-// S&P 500
-// =========================
-
-fetch(`https://finnhub.io/api/v1/quote?symbol=SPY&token=${apiKey}`)
-  .then(response => response.json())
-  .then(data => {
-
-    const element =
-      document.getElementById("sp500-price");
-
-    const change =
-      Number(data.dp).toFixed(2);
-
-    const arrow =
-      data.dp >= 0 ? "▲" : "▼";
-
-    element.textContent =
-      `${arrow} ${Math.abs(change)}%`;
-
-    element.classList.add(
-      data.dp >= 0 ? "green" : "red"
-    );
-
-  });
-
-
-// =========================
-// NASDAQ
-// =========================
-
-fetch(`https://finnhub.io/api/v1/quote?symbol=QQQ&token=${apiKey}`)
-  .then(response => response.json())
-  .then(data => {
-
-    const element =
-      document.getElementById("nasdaq-price");
-
-    const change =
-      Number(data.dp).toFixed(2);
-
-    const arrow =
-      data.dp >= 0 ? "▲" : "▼";
-
-    element.textContent =
-      `${arrow} ${Math.abs(change)}%`;
-
-    element.classList.add(
-      data.dp >= 0 ? "green" : "red"
-    );
-
-  });
-
-
-// =========================
-// OIL
-// =========================
-
-fetch(`https://finnhub.io/api/v1/quote?symbol=USO&token=${apiKey}`)
-  .then(response => response.json())
-  .then(data => {
-
-    document.getElementById("oil-price")
-      .textContent =
-      `$${Number(data.c).toFixed(2)}`;
-
-  });
-
-
-// =========================
-// HEADLINES
-// =========================
-
-fetch(`https://finnhub.io/api/v1/news?category=general&token=${apiKey}`)
-  .then(response => response.json())
-  .then(data => {
-
-    const container =
-      document.getElementById("headlines-container");
-
-    container.innerHTML = "";
-
-    data.slice(0, 3).forEach(article => {
-
-      container.innerHTML += `
-        <div class="headline">
-
-          <div class="headline-source">
-            ${article.source}
-          </div>
-
-          <h3>${article.headline}</h3>
-
-          <p>
-            ${article.summary
-              ? article.summary.substring(0, 140) + "..."
-              : ""}
-          </p>
-
-        </div>
-      `;
-
-    });
-
-  });
 
 
 // =========================
@@ -155,7 +26,52 @@ fetch(`https://finnhub.io/api/v1/news?category=general&token=${apiKey}`)
 fetch(sheetApiUrl)
   .then(response => response.json())
   .then(data => {
+// =========================
+// MARKET DATA
+// =========================
 
+const sp500Element =
+  document.getElementById("sp500-price");
+
+const sp500Value =
+  Number(data.market.sp500);
+
+sp500Element.textContent =
+  `${sp500Value >= 0 ? "▲" : "▼"} ${Math.abs(sp500Value).toFixed(2)}%`;
+
+sp500Element.classList.add(
+  sp500Value >= 0 ? "green" : "red"
+);
+
+
+// NASDAQ
+
+const nasdaqElement =
+  document.getElementById("nasdaq-price");
+
+const nasdaqValue =
+  Number(data.market.nasdaq);
+
+nasdaqElement.textContent =
+  `${nasdaqValue >= 0 ? "▲" : "▼"} ${Math.abs(nasdaqValue).toFixed(2)}%`;
+
+nasdaqElement.classList.add(
+  nasdaqValue >= 0 ? "green" : "red"
+);
+
+
+// BITCOIN
+
+document.getElementById("btc-price")
+  .textContent =
+  `$${Math.round(data.market.bitcoin).toLocaleString()}`;
+
+
+// OIL
+
+document.getElementById("oil-price")
+  .textContent =
+  `$${Number(data.market.oil).toFixed(2)}`;
     // TOTAL PORTFOLIO
 
     document.querySelector(".hero-value")
