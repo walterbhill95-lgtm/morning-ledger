@@ -9,8 +9,8 @@ const nodemailer = require('nodemailer');
 
   const page = await browser.newPage({
     viewport: {
-      width: 1600,
-      height: 2400
+      width: 1400,
+      height: 1800
     }
   });
 
@@ -23,7 +23,7 @@ const nodemailer = require('nodemailer');
 
   await page.screenshot({
     path: 'ledger.png',
-    fullPage: true
+    fullPage: false
   });
 
   await browser.close();
